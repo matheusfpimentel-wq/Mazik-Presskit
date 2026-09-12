@@ -163,7 +163,6 @@
   .btn-kit:hover { transform: rotate(-2deg) translateX(6px); background: var(--gold); color: var(--ink); }
   .kit-art { position: relative; align-self: stretch; display: flex; align-items: center; background: #000; }
   .kit-art img { width: 100%; height: auto; display: block; }
-  .note { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; color: rgba(220,213,199,.55); }
 
   /* ---------- contato (the lights come on) ---------- */
   #contato { position: relative; padding: 96px 0 96px; background: var(--cream); color: var(--ink); }
@@ -182,7 +181,6 @@
   .wa-btn { display: inline-flex; align-items: center; gap: 16px; padding: 20px 32px; background: var(--rust); color: var(--ink); font-family: var(--black); font-size: clamp(26px, 3.2vw, 48px); letter-spacing: .02em; line-height: 1; text-transform: uppercase; transition: transform .4s var(--spring), background .15s ease, color .15s ease; }
   .wa-btn:hover { background: var(--ink); color: var(--cream); transform: rotate(-1.5deg) scale(1.03); }
   .wa-btn svg { flex: none; }
-  .wa .note { margin-top: 14px; color: rgba(18,21,15,.6); }
   .stamps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-self: center; padding: 6px 0; }
   .stamp-card { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-height: 150px; padding: 18px 16px; border: 2px solid var(--ink); color: var(--ink); background: transparent; transform: rotate(var(--r, 0deg)); transition: transform .4s var(--spring), background .15s ease, color .15s ease; overflow-wrap: anywhere; }
   .stamp-card:hover { transform: rotate(0) translateY(-6px); background: var(--ink); color: var(--cream); }
@@ -413,7 +411,6 @@
         <span data-i18n="waCta"></span>
         <span aria-hidden="true">→</span>
       </a>
-      <div class="note" data-i18n="waHint"></div>
     </div>
 
     <div class="stamps" data-reveal style="--d: 160ms">
@@ -494,7 +491,6 @@ const COPY = {
     contatoTitle: "Bora fechar",
     waEyebrow: "Mensagem pronta",
     waCta: "Mandar no WhatsApp",
-    waHint: "Abre no seu WhatsApp com a mensagem pronta. Complete e envie.",
     phoneLabel: "Telefone",
     openLabel: "Abrir perfil",
     copyLabel: "Copiar", copiedLabel: "Copiado",
@@ -529,7 +525,6 @@ const COPY = {
     contatoTitle: "Cerremos fecha",
     waEyebrow: "Mensaje listo",
     waCta: "Enviar por WhatsApp",
-    waHint: "Se abre en tu WhatsApp con el mensaje listo. Completa y envía.",
     phoneLabel: "Teléfono",
     openLabel: "Abrir perfil",
     copyLabel: "Copiar", copiedLabel: "Copiado",
@@ -564,7 +559,6 @@ const COPY = {
     contatoTitle: "Book a date",
     waEyebrow: "Message ready",
     waCta: "Send on WhatsApp",
-    waHint: "Opens in your WhatsApp with the message ready. Fill in and send.",
     phoneLabel: "Phone",
     openLabel: "Open profile",
     copyLabel: "Copy", copiedLabel: "Copied",
