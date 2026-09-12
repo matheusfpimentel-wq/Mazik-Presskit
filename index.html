@@ -57,7 +57,6 @@
   .hero-logo { width: min(100%, 540px); height: auto; display: block; margin-left: -1%; }
   .hero h1 { margin: 30px 0 0; font-family: var(--black); font-weight: 400; font-size: clamp(40px, 6.2vw, 96px); line-height: .9; letter-spacing: .01em; text-transform: uppercase; color: var(--cream); transform: rotate(-2deg); transform-origin: left bottom; }
   .hero h1 .w { display: inline-block; }
-  .hero h1 .w2 { position: relative; }
   .hero h1 .w2 { color: var(--rust); }
   .hero-sub { margin: 22px 0 0; font-size: 17px; line-height: 1.5; color: rgba(220,213,199,.66); max-width: 46ch; }
   .hero-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
@@ -111,21 +110,6 @@
   .sticker.slap { animation: mzk-slap .6s cubic-bezier(.22, 1.6, .36, 1) backwards; }
   .sticker.sway.slap { animation: mzk-slap .6s cubic-bezier(.22, 1.6, .36, 1) backwards, mzk-sway 6s ease-in-out .6s infinite; }
 
-  /* ---------- spray (pixo) ---------- */
-  .spray { position: absolute; pointer-events: none; overflow: visible; fill: none; stroke: var(--rust); stroke-linecap: round; stroke-linejoin: round; }
-  .spray path, .spray line { vector-effect: non-scaling-stroke; filter: url(#spray); }
-  .spray .line { stroke-width: 7px; }
-  .spray .halo { stroke-width: 18px; opacity: .28; filter: url(#spray-soft); }
-  .spray .drip { stroke-width: 5px; opacity: .85; }
-  .js:not(.rm) [data-reveal="spray"] { opacity: 1; transform: none; transition: none; }
-  .js:not(.rm) [data-reveal="spray"] path, .js:not(.rm) [data-reveal="spray"] line { stroke-dasharray: 1; stroke-dashoffset: 1; }
-  .js:not(.rm) [data-reveal="spray"].in path { animation: mzk-draw .55s cubic-bezier(.5, 0, .3, 1) var(--d, 0ms) forwards; }
-  .js:not(.rm) [data-reveal="spray"].in .drip { animation: mzk-draw .7s ease-out calc(var(--d, 0ms) + 450ms) forwards; }
-  @keyframes mzk-draw { to { stroke-dashoffset: 0; } }
-  .spray-hero { left: -3%; bottom: -.3em; width: 106%; height: .55em; }
-  .spray-ring { left: -6px; top: 4px; width: 118px; height: 78px; }
-  .spray-arrow { position: static; flex: none; width: 150px; height: 90px; margin-left: 6px; }
-  .spray-arrow .halo { opacity: .2; }
   @keyframes mzk-sway { 0%,100% { transform: rotate(calc(var(--r) - 1.4deg)); } 50% { transform: rotate(calc(var(--r) + 1.4deg)); } }
   .sway { animation: mzk-sway 6s ease-in-out infinite; transform-origin: 50% 96%; }
 
@@ -141,7 +125,7 @@
   .portrait { position: relative; overflow: hidden; aspect-ratio: 4/5; background: var(--ink2); }
   .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-  .stat { position: relative; padding: 18px 16px; border: 2px solid rgba(220,213,199,.22); }
+  .stat { padding: 18px 16px; border: 2px solid rgba(220,213,199,.22); }
   .stat b { display: block; font-family: var(--black); font-weight: 400; font-size: 60px; line-height: .95; color: var(--gold); }
   .stat b small { font-size: 34px; }
   .stat span { display: block; margin-top: 8px; font-family: var(--narrow); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(220,213,199,.6); }
@@ -212,7 +196,6 @@
   .wa-btn { display: inline-flex; align-items: center; gap: 16px; padding: 20px 32px; background: var(--rust); color: var(--ink); font-family: var(--black); font-size: clamp(26px, 3.2vw, 48px); letter-spacing: .02em; line-height: 1; text-transform: uppercase; transition: transform .4s var(--spring), background .15s ease, color .15s ease; }
   .wa-btn:hover { background: var(--ink); color: var(--cream); transform: rotate(-1.5deg) scale(1.03); }
   .wa-btn svg { flex: none; }
-  .wa-row { display: flex; align-items: center; }
   .wa-bar { display: none; }
   .stamps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-self: center; padding: 6px 0; }
   .stamp-card { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-height: 150px; padding: 18px 16px; border: 2px solid var(--ink); color: var(--ink); background: transparent; transform: rotate(var(--r, 0deg)); transition: transform .4s var(--spring), background .15s ease, color .15s ease; overflow-wrap: anywhere; }
@@ -311,22 +294,10 @@
 
 <div id="topo"></div>
 
-<svg width="0" height="0" style="position: absolute;" aria-hidden="true" focusable="false">
-  <defs>
-    <filter id="spray" x="-20%" y="-40%" width="140%" height="180%">
-      <feTurbulence type="fractalNoise" baseFrequency=".09" numOctaves="3" seed="7" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
-    <filter id="spray-soft" x="-20%" y="-60%" width="140%" height="220%">
-      <feGaussianBlur stdDeviation="3"/>
-    </filter>
-  </defs>
-</svg>
-
 <section class="hero">
   <div class="hero-txt">
     <img class="hero-logo" src="assets/logo-hero.png" alt="MAZIK" width="697" height="377">
-    <h1 lang="es"><span class="w">Bienvenidos</span> <span class="w w2">a la pista<svg class="spray spray-hero" data-reveal="spray" style="--d: 950ms" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true"><path class="halo" d="M6 32 C 90 18, 210 44, 394 24" pathLength="1"/><path class="line" d="M6 32 C 90 18, 210 44, 394 24" pathLength="1"/><line class="drip" x1="128" y1="30" x2="128" y2="58" pathLength="1"/><line class="drip" x1="296" y1="30" x2="296" y2="48" pathLength="1"/></svg></span></h1>
+    <h1 lang="es"><span class="w">Bienvenidos</span> <span class="w w2">a la pista</span></h1>
     <p class="hero-sub" data-i18n="heroSub"></p>
     <div class="hero-btns">
       <a href="#contato" class="btn btn-primary" data-i18n="ctaBook"></a>
@@ -366,7 +337,7 @@
       <div class="side" data-reveal style="--d: 120ms">
         <div class="portrait"><img src="assets/foto-retrato.jpg" alt="Retrato de MAZIK"></div>
         <div class="stats">
-          <div class="stat"><svg class="spray spray-ring" data-reveal="spray" style="--d: 350ms" viewBox="0 0 120 80" aria-hidden="true"><path class="halo" d="M64 12 C 22 6, 4 30, 10 52 C 16 78, 72 84, 102 66 C 122 52, 110 20, 78 12 C 66 9, 56 12, 48 18" pathLength="1"/><path class="line" d="M64 12 C 22 6, 4 30, 10 52 C 16 78, 72 84, 102 66 C 122 52, 110 20, 78 12 C 66 9, 56 12, 48 18" pathLength="1"/><line class="drip" x1="92" y1="70" x2="92" y2="84" pathLength="1"/></svg><b>59</b><span data-i18n="stat1"></span></div>
+          <div class="stat"><b>59</b><span data-i18n="stat1"></span></div>
           <div class="stat"><b>14</b><span data-i18n="stat2"></span></div>
         </div>
         <div class="teach">
@@ -456,14 +427,11 @@
       </div>
       <span class="stamp" data-i18n="waEyebrow"></span>
       <div class="wa-bubble" id="wa-bubble" aria-live="polite"></div>
-      <div class="wa-row">
       <a id="wa-cta" href="https://wa.me/5541998152922" target="_blank" rel="noopener" class="wa-btn">
         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
         <span data-i18n="waCta"></span>
         <span aria-hidden="true">→</span>
       </a>
-      <svg class="spray spray-arrow mzk-hide" data-reveal="spray" style="--d: 500ms" viewBox="0 0 140 80" aria-hidden="true"><path class="halo" d="M132 12 C 116 58, 74 72, 20 44 M 44 22 L 18 43 L 48 58" pathLength="1"/><path class="line" d="M132 12 C 116 58, 74 72, 20 44 M 44 22 L 18 43 L 48 58" pathLength="1"/></svg>
-      </div>
     </div>
 
     <div class="stamps" data-reveal style="--d: 160ms">
