@@ -115,7 +115,7 @@
   .side { position: sticky; top: 100px; display: grid; gap: 10px; }
   .portrait { position: relative; overflow: hidden; aspect-ratio: 4/5; background: var(--ink2); }
   .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .stat { padding: 18px 16px; border: 2px solid rgba(220,213,199,.22); }
   .stat b { display: block; font-family: var(--black); font-weight: 400; font-size: 60px; line-height: .95; color: var(--gold); }
   .stat b small { font-size: 34px; }
@@ -175,7 +175,6 @@
   .chip { cursor: pointer; padding: 10px 14px; border: 2px solid var(--ink); background: transparent; color: var(--ink); font-family: var(--narrow); font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; line-height: 1; transition: transform .35s var(--spring), background .15s ease, color .15s ease; }
   .chip:hover { transform: rotate(-2deg) translateY(-2px); }
   .chip[aria-pressed="true"] { background: var(--ink); color: var(--cream); transform: rotate(-2deg); }
-  .wa .lede { margin-top: 22px; color: rgba(18,21,15,.75); }
   .wa .stamp { margin-top: 26px; color: var(--ink); --r: -3deg; }
   .wa-bubble { position: relative; margin: 20px 0 24px; padding: 20px 24px; max-width: 44ch; min-height: 5.4em; background: var(--ink); color: var(--cream); font-size: clamp(17px, 1.6vw, 21px); line-height: 1.5; white-space: pre-line; border-radius: 18px 18px 18px 4px; }
   .wa-bubble.typing::after { content: "▍"; color: var(--gold); animation: blink 1s steps(1) infinite; }
@@ -321,7 +320,6 @@
         <div class="stats">
           <div class="stat"><b>59</b><span data-i18n="stat1"></span></div>
           <div class="stat"><b>14</b><span data-i18n="stat2"></span></div>
-          <div class="stat"><b>100<small>+</small></b><span data-i18n="stat3"></span></div>
         </div>
         <div class="teach">
           <img src="assets/il-mentoria.png" alt="" loading="lazy" decoding="async" class="outline-deco">
@@ -365,7 +363,6 @@
   <img src="assets/il-decor-fotos.png" alt="" loading="lazy" decoding="async" class="sticker outline-deco mzk-hide" style="left: 3%; bottom: -60px; width: 140px; --r: -12deg;">
   <div class="wrap">
     <h2 class="poster" data-reveal="wipe" data-i18n="photosTitle"></h2>
-    <span class="note" data-reveal data-i18n="photosNote" style="display: block; margin-top: 12px;"></span>
     <div class="gal">
       <div class="span2 row2" data-reveal style="--d: 0ms"><button type="button" class="gal-btn" data-cap="Basement"><img src="assets/foto-basement.jpg" alt="MAZIK nos toca-discos no Basement" loading="lazy" decoding="async"><span class="gal-stamp">Basement</span></button></div>
       <div data-reveal style="--d: 60ms"><button type="button" class="gal-btn" data-cap="Macro"><img src="assets/foto-macro-1.jpg" alt="MAZIK de boné e fone na cabine do Macro" loading="lazy" decoding="async"><span class="gal-stamp">Macro</span></button></div>
@@ -383,12 +380,10 @@
   <div class="kit-grid">
     <div class="kit-txt">
       <h2 class="poster" data-fit="words" data-reveal="wipe" data-i18n="kitTitle"></h2>
-      <p class="lede" data-reveal style="margin-top: 18px; color: rgba(220,213,199,.7); max-width: 40ch;" data-i18n="kitDesc"></p>
       <div class="kit-list" data-reveal style="--d: 80ms">
         <div data-i18n="kitItem1"></div><div data-i18n="kitItem2"></div><div data-i18n="kitItem3"></div><div data-i18n="kitItem4"></div>
       </div>
       <a href="https://drive.google.com/drive/folders/1mFGGzUpKC0FMKEOJ7zzKhF9nU9mx2YHE?usp=drive_link" target="_blank" rel="noopener" class="btn-kit" data-reveal style="--d: 140ms"><span data-i18n="kitCta"></span> <span aria-hidden="true" style="font-family: var(--mono); font-size: 14px;">↓</span></a>
-      <div class="note" style="margin-top: 14px;" data-i18n="kitNote"></div>
     </div>
     <div class="kit-art" data-reveal style="--d: 100ms">
       <img src="assets/kit-art.jpg" alt="Arte MAZIK: onça, cabine, onça" loading="lazy" decoding="async">
@@ -411,7 +406,6 @@
         <button type="button" class="chip" data-tpl="parceria" aria-pressed="false"></button>
         <button type="button" class="chip" data-tpl="imprensa" aria-pressed="false"></button>
       </div>
-      <p class="lede" id="contato-sub"></p>
       <span class="stamp" data-i18n="waEyebrow"></span>
       <div class="wa-bubble" id="wa-bubble" aria-live="polite"></div>
       <a id="wa-cta" href="https://wa.me/5541998152922" target="_blank" rel="noopener" class="wa-btn">
@@ -480,13 +474,13 @@ const COPY = {
   pt: {
     navPhotos: "Fotos",
     ctaBook: "Contratar", ctaListen: "Ouvir set",
-    heroSub: "Reggaeton como cultura, identidade e raiz. Técnica de turntablista, ouvido de percussionista.",
+    heroSub: "Reggaeton como cultura, identidade e raiz.",
     bioTitle: "Ritmo é linguagem",
     bio1: "MAZIK é um DJ nascido em um verdadeiro caldeirão cultural: brasileiro, criado onde as sonoridades e os ritmos de diferentes partes do mundo se encontram para pulsar no continente latino-americano. Da percussão, sua primeira escola, levou a lição que guia tudo o que faz: ritmo é linguagem e toda batida carrega história e sentimento.",
     bio2: "Curitibano, formado pelas academias de música eletrônica da cidade e hoje atuando também na formação de novos talentos, foi lapidado por grandes nomes que lhe passaram a arte do turntablism: scratching, beat juggling, mashups e edits autorais. Para ele, o reggaeton, sua grande especialidade, não é apenas um estilo: é cultura, identidade e raiz. Uma visão que ele não apenas estuda, mas vivencia através de pesquisa musical em países berço do gênero, como Colômbia, Porto Rico e o próprio Brasil.",
     bio3: "Fluente em misturas inesperadas, MAZIK lê a pista como quem conduz uma conversa: sabe quando provocar, quando acalmar e quando explodir. Idealizador de projetos dedicados à cena urbana e figura constante nas cabines que movimentam a noite local, leva ao público uma combinação rara: a técnica de um turntablista, a sensibilidade de um percussionista e a voz de quem entende a música como fenômeno social.",
     bio4: "Agora dá um novo passo: a produção autoral, levando sua leitura do reggaeton do palco ao estúdio. Transforma músicas em pontes e pistas em pontos de encontro.",
-    stat1: "casas diferentes", stat2: "cidades", stat3: "apresen­tações",
+    stat1: "casas diferentes", stat2: "cidades",
     teachTitle: "Aulas e mentoria",
     teachDesc: "Forma novos DJs nas principais academias de Curitiba: técnica, repertório e leitura de pista.",
     citiesLabel: "Onde já tocou",
@@ -494,12 +488,9 @@ const COPY = {
     setsTitle: "Ouve aí",
     setDesc: "Set completo no Mixcloud. Mais gravações e edits saem no Spotify.",
     photosTitle: "Na cabine",
-    photosNote: "alta resolução no kit de mídia · clique para ampliar",
     kitTitle: "Baixe o material",
-    kitDesc: "Logos, fotos em alta, release e material de divulgação, tudo em uma pasta.",
     kitCta: "Abrir no Drive",
     kitItem1: "Logos", kitItem2: "Ilustrações", kitItem3: "Fotos em alta", kitItem4: "Release e bio",
-    kitNote: "Google Drive · atualizado periodicamente",
     contatoTitle: "Bora fechar",
     waEyebrow: "Mensagem pronta",
     waCta: "Mandar no WhatsApp",
@@ -509,22 +500,22 @@ const COPY = {
     copyLabel: "Copiar", copiedLabel: "Copiado",
     close: "Fechar",
     tpl: {
-      booking: { label: "Contratar", sub: "Manda data, cidade e casa. O resto a gente resolve no chat.", msg: "Oi MAZIK! Quero fechar uma data.\nEvento:\nData:\nCidade / casa:", subject: "Contratar MAZIK" },
-      aulas: { label: "Aulas", sub: "Diz seu nível e o que quer aprender. O plano a gente monta no chat.", msg: "Oi MAZIK! Quero saber das aulas e da mentoria.\nNível: (nunca toquei / já toco)\nQuero aprender:\nCidade:", subject: "Aulas com MAZIK" },
-      parceria: { label: "Parceria", sub: "Marca, coletivo ou projeto: conta a ideia em duas linhas.", msg: "Oi MAZIK! Quero propor uma parceria.\nMarca / projeto:\nIdeia:\nQuando:", subject: "Parceria com MAZIK" },
-      imprensa: { label: "Imprensa", sub: "Veículo, pauta e prazo. Material em alta está no kit.", msg: "Oi MAZIK! Sou da imprensa.\nVeículo:\nPauta:\nPrazo:", subject: "Imprensa · MAZIK" }
+      booking: { label: "Contratar", msg: "Oi MAZIK! Quero fechar uma data.\nEvento:\nData:\nCidade / casa:", subject: "Contratar MAZIK" },
+      aulas: { label: "Aulas", msg: "Oi MAZIK! Quero saber das aulas e da mentoria.\nNível: (nunca toquei / já toco)\nQuero aprender:\nCidade:", subject: "Aulas com MAZIK" },
+      parceria: { label: "Parceria", msg: "Oi MAZIK! Quero propor uma parceria.\nMarca / projeto:\nIdeia:\nQuando:", subject: "Parceria com MAZIK" },
+      imprensa: { label: "Imprensa", msg: "Oi MAZIK! Sou da imprensa.\nVeículo:\nPauta:\nPrazo:", subject: "Imprensa · MAZIK" }
     }
   },
   es: {
     navPhotos: "Fotos",
     ctaBook: "Contratar", ctaListen: "Escuchar set",
-    heroSub: "Reggaeton como cultura, identidad y raíz. Técnica de turntablist, oído de percusionista.",
+    heroSub: "Reggaeton como cultura, identidad y raíz.",
     bioTitle: "El ritmo es lenguaje",
     bio1: "MAZIK es un DJ nacido en un verdadero caldero cultural: brasileño, criado donde los sonidos y ritmos de distintas partes del mundo se encuentran para latir en el continente latinoamericano. De la percusión, su primera escuela, sacó la lección que guía todo lo que hace: el ritmo es lenguaje y cada golpe carga historia y sentimiento.",
     bio2: "Curitibano, formado en las academias de música electrónica de la ciudad y hoy también formando nuevos talentos, fue pulido por grandes nombres que le pasaron el arte del turntablism: scratching, beat juggling, mashups y edits propios. Para él, el reggaeton, su gran especialidad, no es solo un estilo: es cultura, identidad y raíz. Una visión que no solo estudia, sino que vive a través de investigación musical en países cuna del género, como Colombia, Puerto Rico y el propio Brasil.",
     bio3: "Fluido en mezclas inesperadas, MAZIK lee la pista como quien conduce una conversación: sabe cuándo provocar, cuándo calmar y cuándo explotar. Creador de proyectos dedicados a la escena urbana y presencia constante en las cabinas que mueven la noche local, lleva al público una combinación rara: la técnica de un turntablist, la sensibilidad de un percusionista y la voz de quien entiende la música como fenómeno social.",
     bio4: "Ahora da un nuevo paso: la producción propia, llevando su lectura del reggaeton del escenario al estudio. Convierte canciones en puentes y pistas en puntos de encuentro.",
-    stat1: "salas distintas", stat2: "ciudades", stat3: "presen­taciones",
+    stat1: "salas distintas", stat2: "ciudades",
     teachTitle: "Clases y mentoría",
     teachDesc: "Forma nuevos DJs en las principales academias de Curitiba: técnica, repertorio y lectura de pista.",
     citiesLabel: "Dónde ya tocó",
@@ -532,12 +523,9 @@ const COPY = {
     setsTitle: "Escúchalo",
     setDesc: "Set completo en Mixcloud. Más grabaciones y edits salen en Spotify.",
     photosTitle: "En la cabina",
-    photosNote: "alta resolución en el kit de prensa · clic para ampliar",
     kitTitle: "Descarga el material",
-    kitDesc: "Logos, fotos en alta, release y material de difusión, todo en una carpeta.",
     kitCta: "Abrir en Drive",
     kitItem1: "Logos", kitItem2: "Ilustraciones", kitItem3: "Fotos en alta", kitItem4: "Release y bio",
-    kitNote: "Google Drive · actualizado periódicamente",
     contatoTitle: "Cerremos fecha",
     waEyebrow: "Mensaje listo",
     waCta: "Enviar por WhatsApp",
@@ -547,22 +535,22 @@ const COPY = {
     copyLabel: "Copiar", copiedLabel: "Copiado",
     close: "Cerrar",
     tpl: {
-      booking: { label: "Contratar", sub: "Manda fecha, ciudad y sala. El resto lo resolvemos en el chat.", msg: "¡Hola MAZIK! Quiero cerrar una fecha.\nEvento:\nFecha:\nCiudad / sala:", subject: "Contratar a MAZIK" },
-      aulas: { label: "Clases", sub: "Dime tu nivel y qué quieres aprender. El plan lo armamos en el chat.", msg: "¡Hola MAZIK! Quiero saber de las clases y la mentoría.\nNivel: (nunca toqué / ya toco)\nQuiero aprender:\nCiudad:", subject: "Clases con MAZIK" },
-      parceria: { label: "Alianza", sub: "Marca, colectivo o proyecto: cuenta la idea en dos líneas.", msg: "¡Hola MAZIK! Quiero proponer una alianza.\nMarca / proyecto:\nIdea:\nCuándo:", subject: "Alianza con MAZIK" },
-      imprensa: { label: "Prensa", sub: "Medio, tema y plazo. El material en alta está en el kit.", msg: "¡Hola MAZIK! Soy de prensa.\nMedio:\nTema:\nPlazo:", subject: "Prensa · MAZIK" }
+      booking: { label: "Contratar", msg: "¡Hola MAZIK! Quiero cerrar una fecha.\nEvento:\nFecha:\nCiudad / sala:", subject: "Contratar a MAZIK" },
+      aulas: { label: "Clases", msg: "¡Hola MAZIK! Quiero saber de las clases y la mentoría.\nNivel: (nunca toqué / ya toco)\nQuiero aprender:\nCiudad:", subject: "Clases con MAZIK" },
+      parceria: { label: "Alianza", msg: "¡Hola MAZIK! Quiero proponer una alianza.\nMarca / proyecto:\nIdea:\nCuándo:", subject: "Alianza con MAZIK" },
+      imprensa: { label: "Prensa", msg: "¡Hola MAZIK! Soy de prensa.\nMedio:\nTema:\nPlazo:", subject: "Prensa · MAZIK" }
     }
   },
   en: {
     navPhotos: "Photos",
     ctaBook: "Book now", ctaListen: "Listen",
-    heroSub: "Reggaeton as culture, identity and roots. A turntablist's technique, a percussionist's ear.",
+    heroSub: "Reggaeton as culture, identity and roots.",
     bioTitle: "Rhythm is language",
     bio1: "MAZIK is a DJ born in a genuine cultural melting pot: Brazilian, raised where sounds and rhythms from all over the world meet to pulse across Latin America. Percussion was his first school, and it left the lesson that guides everything he does: rhythm is language, and every beat carries history and feeling.",
     bio2: "From Curitiba, trained in the city's electronic music academies and today teaching new talent himself, he was shaped by names who passed him the art of turntablism: scratching, beat juggling, mashups and original edits. For him reggaeton, his specialty, is not just a style: it is culture, identity and roots. A view he doesn't only study but lives, through musical research in countries that cradled the genre: Colombia, Puerto Rico and Brazil itself.",
     bio3: "Fluent in unexpected blends, MAZIK reads the floor like someone holding a conversation: he knows when to provoke, when to calm and when to blow it up. Founder of projects dedicated to the urban scene and a constant presence in the booths that move the local night, he brings a rare combination: a turntablist's technique, a percussionist's sensibility and the voice of someone who understands music as a social phenomenon.",
     bio4: "Now he takes a new step: original production, carrying his reading of reggaeton from the stage into the studio. Turning tracks into bridges and dancefloors into meeting points.",
-    stat1: "different venues", stat2: "cities", stat3: "shows",
+    stat1: "different venues", stat2: "cities",
     teachTitle: "Classes and mentoring",
     teachDesc: "Trains new DJs at Curitiba's electronic music academies: technique, repertoire and floor reading.",
     citiesLabel: "Where he has played",
@@ -570,12 +558,9 @@ const COPY = {
     setsTitle: "Listen here",
     setDesc: "Full set on Mixcloud. More recordings and edits on Spotify.",
     photosTitle: "In the booth",
-    photosNote: "hi-res in the media kit · click to enlarge",
     kitTitle: "Download assets",
-    kitDesc: "Logos, hi-res photos, release and promo material, all in one folder.",
     kitCta: "Open in Drive",
     kitItem1: "Logos", kitItem2: "Illustrations", kitItem3: "Hi-res photos", kitItem4: "Release and bio",
-    kitNote: "Google Drive · updated periodically",
     contatoTitle: "Book a date",
     waEyebrow: "Message ready",
     waCta: "Send on WhatsApp",
@@ -585,10 +570,10 @@ const COPY = {
     copyLabel: "Copy", copiedLabel: "Copied",
     close: "Close",
     tpl: {
-      booking: { label: "Booking", sub: "Send the date, city and venue. We'll sort the rest in the chat.", msg: "Hi MAZIK! I'd like to book a date.\nEvent:\nDate:\nCity / venue:", subject: "Booking MAZIK" },
-      aulas: { label: "Classes", sub: "Tell me your level and what you want to learn. We'll build the plan in the chat.", msg: "Hi MAZIK! I'd like to know about classes and mentoring.\nLevel: (never played / already play)\nI want to learn:\nCity:", subject: "Classes with MAZIK" },
-      parceria: { label: "Partnership", sub: "Brand, collective or project: pitch the idea in two lines.", msg: "Hi MAZIK! I'd like to propose a partnership.\nBrand / project:\nIdea:\nWhen:", subject: "Partnership with MAZIK" },
-      imprensa: { label: "Press", sub: "Outlet, story and deadline. Hi-res material is in the kit.", msg: "Hi MAZIK! I'm with the press.\nOutlet:\nStory:\nDeadline:", subject: "Press · MAZIK" }
+      booking: { label: "Booking", msg: "Hi MAZIK! I'd like to book a date.\nEvent:\nDate:\nCity / venue:", subject: "Booking MAZIK" },
+      aulas: { label: "Classes", msg: "Hi MAZIK! I'd like to know about classes and mentoring.\nLevel: (never played / already play)\nI want to learn:\nCity:", subject: "Classes with MAZIK" },
+      parceria: { label: "Partnership", msg: "Hi MAZIK! I'd like to propose a partnership.\nBrand / project:\nIdea:\nWhen:", subject: "Partnership with MAZIK" },
+      imprensa: { label: "Press", msg: "Hi MAZIK! I'm with the press.\nOutlet:\nStory:\nDeadline:", subject: "Press · MAZIK" }
     }
   }
 };
@@ -661,7 +646,6 @@ function renderTemplate(mode) {
     c.textContent = tt.label;
     c.setAttribute("aria-pressed", String(c.dataset.tpl === tplKey));
   });
-  document.getElementById("contato-sub").textContent = t.sub;
   document.getElementById("wa-cta").href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(t.msg);
   document.getElementById("mail-link").href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(t.subject);
   const bubble = document.getElementById("wa-bubble");
