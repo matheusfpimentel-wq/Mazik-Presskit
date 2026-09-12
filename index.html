@@ -13,14 +13,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/tusker-grotesk-5700-bold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo&family=Archivo+Black&family=Archivo+Narrow:wght@700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("rm");</script>
 <style>
+  @font-face { font-family: 'Tusker Grotesk'; src: url('assets/fonts/tusker-grotesk-5700-bold.woff2') format('woff2'); font-weight: 400 700; font-style: normal; font-display: swap; }
   :root {
     --ink: #12150F; --ink2: #0C0E0A; --cream: #DCD5C7; --rust: #C0522B; --gold: #D89A2B; --sage: #8FA07E;
-    --narrow: 'Archivo Narrow', sans-serif; --black: 'Archivo Black', sans-serif; --mono: ui-monospace, Menlo, monospace;
+    --narrow: 'Archivo Narrow', sans-serif; --black: 'Tusker Grotesk', 'Archivo Black', Impact, sans-serif; --mono: ui-monospace, Menlo, monospace;
     --spring: cubic-bezier(.2, 1.4, .3, 1); --cut: cubic-bezier(.2, .9, .2, 1);
   }
   html { scroll-behavior: smooth; }
@@ -31,11 +33,8 @@
   section[id] { scroll-margin-top: 64px; }
   img { max-width: 100%; }
 
-  /* ---------- poster type ---------- */
-  .poster { margin: 0; padding: .14em 0 .08em; font-family: var(--black); font-weight: 400; text-transform: uppercase; line-height: .82; letter-spacing: -0.015em; white-space: nowrap; }
-  .poster.xl { font-size: clamp(56px, 13vw, 210px); }
-  .poster.lg { font-size: clamp(48px, 10vw, 160px); }
-  .poster.md { font-size: clamp(44px, 8.5vw, 132px); }
+  /* ---------- poster type (size is fitted to the container by script) ---------- */
+  .poster { margin: 0; padding: .1em 0 .06em; font-family: var(--black); font-weight: 400; text-transform: uppercase; line-height: .86; letter-spacing: .01em; white-space: nowrap; font-size: var(--fs, clamp(44px, 12vw, 200px)); }
   .stamp { display: inline-block; padding: 7px 12px; border: 2px solid currentColor; font-family: var(--narrow); font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; line-height: 1; transform: rotate(var(--r, -3deg)); }
   .lede { margin: 0; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.5; max-width: 46ch; text-wrap: pretty; }
   .wrap { padding-left: 48px; padding-right: 48px; }
@@ -56,7 +55,7 @@
   .hero { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; align-items: end; padding: 78px 0 0 48px; overflow: hidden; }
   .hero-txt { position: relative; z-index: 3; padding: 32px 0 56px; display: flex; flex-direction: column; align-items: flex-start; }
   .hero-logo { width: min(100%, 540px); height: auto; display: block; margin-left: -1%; }
-  .hero h1 { margin: 30px 0 0; font-family: var(--black); font-weight: 400; font-size: clamp(30px, 4.2vw, 62px); line-height: .92; text-transform: uppercase; color: var(--cream); transform: rotate(-2deg); transform-origin: left bottom; }
+  .hero h1 { margin: 30px 0 0; font-family: var(--black); font-weight: 400; font-size: clamp(40px, 6.2vw, 96px); line-height: .9; letter-spacing: .01em; text-transform: uppercase; color: var(--cream); transform: rotate(-2deg); transform-origin: left bottom; }
   .hero h1 .w { display: inline-block; }
   .hero h1 .w2 { color: var(--rust); }
   .hero-sub { margin: 22px 0 0; font-size: 17px; line-height: 1.5; color: rgba(220,213,199,.66); max-width: 46ch; }
@@ -84,11 +83,11 @@
 
   /* ---------- tape + marquee ---------- */
   .tape { height: 30px; background-image: url('assets/divider-texture.png'); background-repeat: repeat-x; background-size: auto 100%; background-position: center; }
-  .marquee { overflow: hidden; white-space: nowrap; background: var(--gold); padding: 12px 0; }
+  .marquee { overflow: hidden; white-space: nowrap; background: var(--gold); padding: 10px 0; }
   .marquee-track { display: inline-flex; will-change: transform; }
-  .marquee span { font-family: var(--black); font-size: 30px; letter-spacing: .02em; color: var(--ink); text-transform: uppercase; flex: none; }
-  .marquee.rev { background: var(--ink); border-top: 1px solid rgba(220,213,199,.16); border-bottom: 1px solid rgba(220,213,199,.16); }
-  .marquee.rev span { color: var(--cream); font-size: clamp(28px, 4.2vw, 60px); }
+  .marquee span { font-family: var(--black); font-size: 42px; letter-spacing: .03em; line-height: 1; color: var(--ink); text-transform: uppercase; flex: none; }
+  .marquee.rev { background: var(--ink); border-top: 1px solid rgba(220,213,199,.16); border-bottom: 1px solid rgba(220,213,199,.16); padding: 14px 0; }
+  .marquee.rev span { color: var(--cream); font-size: clamp(36px, 5.5vw, 84px); }
   .marquee.rev span em { font-style: normal; color: var(--rust); }
   .marquee.rev span i { font-style: normal; color: rgba(220,213,199,.35); }
 
@@ -97,6 +96,7 @@
   .js:not(.rm) [data-reveal].in { opacity: 1; transform: none; }
   .js:not(.rm) [data-reveal="wipe"] { opacity: 1; transform: none; clip-path: inset(0 100% 0 0); transition: clip-path .55s cubic-bezier(.7, 0, .2, 1); }
   .js:not(.rm) [data-reveal="wipe"].in { clip-path: inset(0 0 0 0); }
+  .js:not(.rm) [data-reveal="wipe"].done { clip-path: none; }
 
   /* ---------- stickers ---------- */
   .sticker { position: absolute; z-index: 20; transform: rotate(var(--r, 0deg)); transition: transform .5s var(--spring); }
@@ -117,12 +117,12 @@
   .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
   .stat { padding: 18px 16px; border: 2px solid rgba(220,213,199,.22); }
-  .stat b { display: block; font-family: var(--black); font-weight: 400; font-size: 44px; line-height: 1; color: var(--gold); }
-  .stat b small { font-size: 24px; }
+  .stat b { display: block; font-family: var(--black); font-weight: 400; font-size: 60px; line-height: .95; color: var(--gold); }
+  .stat b small { font-size: 34px; }
   .stat span { display: block; margin-top: 8px; font-family: var(--narrow); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(220,213,199,.6); }
   .teach { padding: 18px 20px; border: 2px solid rgba(220,213,199,.22); display: flex; gap: 16px; align-items: center; }
   .teach img { width: 64px; flex: none; }
-  .teach b { display: block; font-family: var(--black); font-weight: 400; font-size: 15px; text-transform: uppercase; }
+  .teach b { display: block; font-family: var(--black); font-weight: 400; font-size: 22px; letter-spacing: .02em; text-transform: uppercase; }
   .teach span { display: block; margin-top: 4px; font-size: 14px; line-height: 1.45; color: rgba(220,213,199,.62); }
 
   /* ---------- lugares ---------- */
@@ -135,9 +135,9 @@
   #sets .poster { color: var(--ink); }
   .sets-grid { position: relative; display: grid; grid-template-columns: 1fr .72fr; gap: 28px; align-items: center; margin-top: 40px; }
   .sets-grid iframe { width: 100%; height: 120px; border: 3px solid var(--ink); display: block; background: var(--ink); }
-  .set-name { font-family: var(--black); font-size: 28px; line-height: 1.05; text-transform: uppercase; margin-bottom: 12px; }
+  .set-name { font-family: var(--black); font-size: 44px; line-height: .95; letter-spacing: .02em; text-transform: uppercase; margin-bottom: 12px; }
   .set-desc { margin: 0; font-size: 17px; line-height: 1.55; color: rgba(18,21,15,.76); max-width: 40ch; }
-  .link-dark { font-family: var(--narrow); font-size: 13px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); border-bottom: 3px solid var(--ink); }
+  .link-dark { display: inline-block; margin-top: 16px; font-family: var(--narrow); font-size: 13px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); border-bottom: 3px solid var(--ink); }
   .link-dark:hover { color: var(--cream); border-color: var(--cream); }
 
   /* ---------- fotos ---------- */
@@ -155,11 +155,11 @@
   #kit { position: relative; background: #050505; color: var(--cream); overflow: hidden; }
   .kit-grid { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; }
   .kit-txt { padding: 96px 48px; display: flex; flex-direction: column; justify-content: center; }
-  #kit .poster { color: var(--cream); white-space: normal; }
+  #kit .poster { color: var(--cream); }
   .kit-list { display: grid; margin: 30px 0; max-width: 380px; }
   .kit-list div { padding: 12px 0; border-top: 1px solid rgba(220,213,199,.2); font-family: var(--narrow); font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
   .kit-list div:last-child { border-bottom: 1px solid rgba(220,213,199,.2); }
-  .btn-kit { display: inline-flex; align-self: flex-start; align-items: center; gap: 16px; padding: 20px 26px; background: var(--rust); color: var(--ink); font-family: var(--black); font-size: 18px; white-space: nowrap; text-transform: uppercase; transition: transform .35s var(--spring), background .15s ease; }
+  .btn-kit { display: inline-flex; align-self: flex-start; align-items: center; gap: 16px; padding: 18px 26px; background: var(--rust); color: var(--ink); font-family: var(--black); font-size: 26px; letter-spacing: .03em; line-height: 1; white-space: nowrap; text-transform: uppercase; transition: transform .35s var(--spring), background .15s ease; }
   .btn-kit:hover { transform: rotate(-2deg) translateX(6px); background: var(--gold); color: var(--ink); }
   .kit-art { position: relative; align-self: stretch; display: flex; align-items: center; background: #000; }
   .kit-art img { width: 100%; height: auto; display: block; }
@@ -168,13 +168,18 @@
   /* ---------- contato (the lights come on) ---------- */
   #contato { position: relative; padding: 96px 0 96px; background: var(--cream); color: var(--ink); overflow: hidden; }
   #contato .poster { color: var(--rust); }
-  #contato .lede { margin-top: 18px; color: rgba(18,21,15,.75); }
-  .wa { margin-top: 44px; max-width: 760px; }
-  .wa .stamp { color: var(--ink); --r: -3deg; }
+  #contato .sticker { filter: drop-shadow(2px 0 0 var(--ink)) drop-shadow(-2px 0 0 var(--ink)) drop-shadow(0 2px 0 var(--ink)) drop-shadow(0 -2px 0 var(--ink)); }
+  .wa { margin-top: 28px; max-width: 760px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { cursor: pointer; padding: 10px 14px; border: 2px solid var(--ink); background: transparent; color: var(--ink); font-family: var(--narrow); font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; line-height: 1; transition: transform .35s var(--spring), background .15s ease, color .15s ease; }
+  .chip:hover { transform: rotate(-2deg) translateY(-2px); }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--cream); transform: rotate(-2deg); }
+  .wa .lede { margin-top: 22px; color: rgba(18,21,15,.75); }
+  .wa .stamp { margin-top: 26px; color: var(--ink); --r: -3deg; }
   .wa-bubble { position: relative; margin: 20px 0 24px; padding: 20px 24px; max-width: 44ch; min-height: 5.4em; background: var(--ink); color: var(--cream); font-size: clamp(17px, 1.6vw, 21px); line-height: 1.5; white-space: pre-line; border-radius: 18px 18px 18px 4px; }
   .wa-bubble.typing::after { content: "▍"; color: var(--gold); animation: blink 1s steps(1) infinite; }
   @keyframes blink { 50% { opacity: 0; } }
-  .wa-btn { display: inline-flex; align-items: center; gap: 16px; padding: 22px 32px; background: var(--rust); color: var(--ink); font-family: var(--black); font-size: clamp(20px, 2.6vw, 34px); line-height: 1; text-transform: uppercase; transition: transform .4s var(--spring), background .15s ease, color .15s ease; }
+  .wa-btn { display: inline-flex; align-items: center; gap: 16px; padding: 20px 32px; background: var(--rust); color: var(--ink); font-family: var(--black); font-size: clamp(26px, 3.2vw, 48px); letter-spacing: .02em; line-height: 1; text-transform: uppercase; transition: transform .4s var(--spring), background .15s ease, color .15s ease; }
   .wa-btn:hover { background: var(--ink); color: var(--cream); transform: rotate(-1.5deg) scale(1.03); }
   .wa-btn svg { flex: none; }
   .wa .note { margin-top: 14px; color: rgba(18,21,15,.6); }
@@ -187,7 +192,7 @@
   .stamp-card a:hover { text-decoration: underline; }
   .copy-btn { cursor: pointer; border: 1.5px solid currentColor; background: transparent; color: inherit; font-family: var(--narrow); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; padding: 6px 10px; margin-top: 4px; }
   .copy-btn.done { background: var(--gold); color: var(--ink); border-color: var(--gold); }
-  .onca { position: absolute; right: 3%; top: 40%; width: 300px; --r: -8deg; }
+  .onca { position: absolute; right: 3%; top: 42%; width: 300px; --r: -8deg; }
 
   /* ---------- lightbox ---------- */
   .lb { position: fixed; inset: 0; z-index: 1000; background: rgba(12,14,10,.96); display: flex; align-items: center; justify-content: center; padding: 24px; }
@@ -211,15 +216,13 @@
     .wrap, .kit-txt, footer { padding-left: 20px !important; padding-right: 20px !important; }
     #lugares .stamp { margin-left: 20px; }
     .mzk-hide { display: none !important; }
-    .poster { white-space: normal; line-height: .9; }
-    .poster.xl, .poster.lg, .poster.md { font-size: clamp(40px, 13vw, 72px); }
     header nav { gap: 12px; font-size: 11px; }
     .hero { grid-template-columns: 1fr; padding: 76px 20px 0; }
     .hero-txt { text-align: center; align-items: center; }
     .hero h1 { transform: rotate(-1.5deg); transform-origin: center; }
     .hero-btns { justify-content: center; }
     .hero-art { width: 70%; margin: 0 auto; }
-    .marquee span { font-size: 20px; }
+    .marquee span { font-size: 28px; }
     .bio-grid, .sets-grid, .kit-grid { grid-template-columns: 1fr; }
     .bio-grid > *, .sets-grid > *, .kit-grid > * { min-width: 0; }
     .side { position: static; }
@@ -227,7 +230,7 @@
     .gal-stamp { opacity: 1; transform: rotate(-6deg); font-size: 10px; padding: 5px 8px; }
     .stat { padding: 14px 10px; }
     .stat span { font-size: 10px; letter-spacing: .08em; }
-    .stat b { font-size: 36px; }
+    .stat b { font-size: 48px; }
   }
   @media (max-width: 600px) {
     .stamps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
@@ -240,7 +243,7 @@
     .nav-link { display: none !important; }
     header nav { gap: 8px; }
     .lang-btn { font-size: 10px; padding: 7px 6px; }
-    .wa-btn { display: flex; justify-content: center; text-align: center; font-size: 18px; padding: 18px; }
+    .wa-btn { display: flex; justify-content: center; text-align: center; font-size: 24px; padding: 18px; }
   }
   @media (max-width: 360px) {
     .stat span { font-size: 9px; letter-spacing: .06em; }
@@ -300,7 +303,7 @@
 
 <section id="bio">
   <div class="wrap">
-    <h2 class="poster lg" data-reveal="wipe" data-i18n="bioTitle"></h2>
+    <h2 class="poster" data-reveal="wipe" data-i18n="bioTitle"></h2>
     <div class="bio-grid">
       <div data-reveal>
         <p data-i18n="bio1"></p>
@@ -336,25 +339,21 @@
       <span>Curitiba <i>/</i> São Paulo <i>/</i> Porto Belo <i>/</i> Foz do Iguaçu <i>/</i> Ponta Grossa <i>/</i> Pato Branco <i>/</i> <em data-i18n="citiesMore"></em> <i>/</i>&nbsp;</span>
     </div>
   </div>
-  <p class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Curitiba, São Paulo, Porto Belo, Foz do Iguaçu, Ponta Grossa, Pato Branco, <span data-i18n="citiesMore"></span></p>
+  <p style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Curitiba, São Paulo, Porto Belo, Foz do Iguaçu, Ponta Grossa, Pato Branco, <span data-i18n="citiesMore"></span></p>
 </section>
 
 <section id="sets">
   <div class="texture"></div>
   <img src="assets/il-decor-sets.png" alt="" loading="lazy" decoding="async" class="sticker outline-deco mzk-hide" style="right: 4%; bottom: -60px; width: 170px; --r: -10deg;">
   <div class="wrap" style="position: relative;">
-    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
-      <div>
-        <span class="stamp" data-reveal style="--r: -3deg;">Set · Mixcloud</span>
-        <h2 class="poster xl" data-reveal="wipe" data-i18n="setsTitle" style="margin-top: 18px;"></h2>
-      </div>
-      <a href="https://www.mixcloud.com/mazikthedj/" target="_blank" rel="noopener" class="link-dark" data-reveal>Mixcloud <span aria-hidden="true">↗</span></a>
-    </div>
+    <span class="stamp" data-reveal style="--r: -3deg;">Set · Mixcloud</span>
+    <h2 class="poster" data-reveal="wipe" data-i18n="setsTitle" style="margin-top: 18px;"></h2>
     <div class="sets-grid" data-reveal style="--d: 120ms">
       <iframe src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=0&feed=%2Fmazikthedj%2Fpurrro-perreo%2F" title="Purrro Perreo, MAZIK" scrolling="no" allow="autoplay" loading="lazy"></iframe>
       <div>
         <div class="set-name">Purrro Perreo</div>
         <p class="set-desc" data-i18n="setDesc"></p>
+        <a href="https://www.mixcloud.com/mazikthedj/" target="_blank" rel="noopener" class="link-dark">Mixcloud <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </div>
@@ -363,10 +362,8 @@
 <section id="fotos">
   <img src="assets/il-decor-fotos.png" alt="" loading="lazy" decoding="async" class="sticker outline-deco mzk-hide" style="left: 3%; bottom: -60px; width: 140px; --r: -12deg;">
   <div class="wrap">
-    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
-      <h2 class="poster xl" data-reveal="wipe" data-i18n="photosTitle"></h2>
-      <span class="note" data-reveal data-i18n="photosNote"></span>
-    </div>
+    <h2 class="poster" data-reveal="wipe" data-i18n="photosTitle"></h2>
+    <span class="note" data-reveal data-i18n="photosNote" style="display: block; margin-top: 12px;"></span>
     <div class="gal">
       <div class="span2 row2" data-reveal style="--d: 0ms"><button type="button" class="gal-btn" data-cap="Basement"><img src="assets/foto-basement.jpg" alt="MAZIK nos toca-discos no Basement" loading="lazy" decoding="async"><span class="gal-stamp">Basement</span></button></div>
       <div data-reveal style="--d: 60ms"><button type="button" class="gal-btn" data-cap="Macro"><img src="assets/foto-macro-1.jpg" alt="MAZIK de boné e fone na cabine do Macro" loading="lazy" decoding="async"><span class="gal-stamp">Macro</span></button></div>
@@ -383,12 +380,12 @@
   <img src="assets/il-decor-kit.png" alt="" loading="lazy" decoding="async" class="sticker sway outline-deco mzk-hide" style="right: 3%; bottom: -70px; width: 120px; --r: 7deg;">
   <div class="kit-grid">
     <div class="kit-txt">
-      <h2 class="poster md" data-reveal="wipe" data-i18n="kitTitle"></h2>
+      <h2 class="poster" data-reveal="wipe" data-i18n="kitTitle"></h2>
       <p class="lede" data-reveal style="margin-top: 18px; color: rgba(220,213,199,.7); max-width: 40ch;" data-i18n="kitDesc"></p>
       <div class="kit-list" data-reveal style="--d: 80ms">
         <div data-i18n="kitItem1"></div><div data-i18n="kitItem2"></div><div data-i18n="kitItem3"></div><div data-i18n="kitItem4"></div>
       </div>
-      <a href="https://drive.google.com/drive/folders/1mFGGzUpKC0FMKEOJ7zzKhF9nU9mx2YHE?usp=drive_link" target="_blank" rel="noopener" class="btn-kit" data-reveal style="--d: 140ms"><span data-i18n="kitCta"></span> <span aria-hidden="true" style="font-family: var(--mono); font-size: 13px;">↓</span></a>
+      <a href="https://drive.google.com/drive/folders/1mFGGzUpKC0FMKEOJ7zzKhF9nU9mx2YHE?usp=drive_link" target="_blank" rel="noopener" class="btn-kit" data-reveal style="--d: 140ms"><span data-i18n="kitCta"></span> <span aria-hidden="true" style="font-family: var(--mono); font-size: 14px;">↓</span></a>
       <div class="note" style="margin-top: 14px;" data-i18n="kitNote"></div>
     </div>
     <div class="kit-art" data-reveal style="--d: 100ms">
@@ -400,16 +397,22 @@
 <div class="tape"></div>
 
 <section id="contato">
-  <img src="assets/il-decor-contato.png" alt="" loading="lazy" decoding="async" class="sticker onca outline-deco">
+  <img src="assets/il-decor-contato.png" alt="" loading="lazy" decoding="async" class="sticker onca">
   <div class="wrap">
-    <h2 class="poster xl" data-reveal="wipe" data-i18n="contatoTitle"></h2>
-    <p class="lede" data-reveal data-i18n="contatoSub"></p>
+    <h2 class="poster" data-reveal="wipe" data-i18n="contatoTitle"></h2>
 
     <div class="wa" data-reveal style="--d: 80ms">
+      <div class="chips" role="group" aria-label="Assunto">
+        <button type="button" class="chip" data-tpl="booking" aria-pressed="true"></button>
+        <button type="button" class="chip" data-tpl="aulas" aria-pressed="false"></button>
+        <button type="button" class="chip" data-tpl="parceria" aria-pressed="false"></button>
+        <button type="button" class="chip" data-tpl="imprensa" aria-pressed="false"></button>
+      </div>
+      <p class="lede" id="contato-sub"></p>
       <span class="stamp" data-i18n="waEyebrow"></span>
       <div class="wa-bubble" id="wa-bubble" aria-live="polite"></div>
       <a id="wa-cta" href="https://wa.me/5541998152922" target="_blank" rel="noopener" class="wa-btn">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
         <span data-i18n="waCta"></span>
         <span aria-hidden="true">→</span>
       </a>
@@ -426,7 +429,7 @@
       <a id="mail-link" href="mailto:contato@mazik.com.br" class="stamp-card" style="--r: 1deg;">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
         <b>E-mail</b>
-        <span>contato@mazik.com.br</span>
+        <span style="overflow-wrap: normal;">contato@<wbr>mazik.com.br</span>
       </a>
       <a href="https://instagram.com/mazik.dj" target="_blank" rel="noopener" class="stamp-card" style="--r: -0.8deg;">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
@@ -494,16 +497,19 @@ const COPY = {
     kitItem1: "Logos", kitItem2: "Ilustrações", kitItem3: "Fotos em alta", kitItem4: "Release e bio",
     kitNote: "Google Drive · atualizado periodicamente",
     contatoTitle: "Bora fechar",
-    contatoSub: "Manda data, cidade e casa. O resto a gente resolve no chat.",
     waEyebrow: "Mensagem pronta",
-    waMessage: "Oi MAZIK! Quero fechar uma data.\nEvento:\nData:\nCidade / casa:",
     waCta: "Mandar no WhatsApp",
     waHint: "Abre no seu WhatsApp com a mensagem pronta. Complete e envie.",
     phoneLabel: "Telefone",
     openLabel: "Abrir perfil",
     copyLabel: "Copiar", copiedLabel: "Copiado",
-    mailSubject: "Contratar MAZIK",
-    close: "Fechar"
+    close: "Fechar",
+    tpl: {
+      booking: { label: "Contratar", sub: "Manda data, cidade e casa. O resto a gente resolve no chat.", msg: "Oi MAZIK! Quero fechar uma data.\nEvento:\nData:\nCidade / casa:", subject: "Contratar MAZIK" },
+      aulas: { label: "Aulas", sub: "Diz seu nível e o que quer aprender. O plano a gente monta no chat.", msg: "Oi MAZIK! Quero saber das aulas e da mentoria.\nNível: (nunca toquei / já toco)\nQuero aprender:\nCidade:", subject: "Aulas com MAZIK" },
+      parceria: { label: "Parceria", sub: "Marca, coletivo ou projeto: conta a ideia em duas linhas.", msg: "Oi MAZIK! Quero propor uma parceria.\nMarca / projeto:\nIdeia:\nQuando:", subject: "Parceria com MAZIK" },
+      imprensa: { label: "Imprensa", sub: "Veículo, pauta e prazo. Material em alta está no kit.", msg: "Oi MAZIK! Sou da imprensa.\nVeículo:\nPauta:\nPrazo:", subject: "Imprensa · MAZIK" }
+    }
   },
   es: {
     navPhotos: "Fotos",
@@ -529,16 +535,19 @@ const COPY = {
     kitItem1: "Logos", kitItem2: "Ilustraciones", kitItem3: "Fotos en alta", kitItem4: "Release y bio",
     kitNote: "Google Drive · actualizado periódicamente",
     contatoTitle: "Cerremos fecha",
-    contatoSub: "Manda fecha, ciudad y sala. El resto lo resolvemos en el chat.",
     waEyebrow: "Mensaje listo",
-    waMessage: "¡Hola MAZIK! Quiero cerrar una fecha.\nEvento:\nFecha:\nCiudad / sala:",
     waCta: "Enviar por WhatsApp",
     waHint: "Se abre en tu WhatsApp con el mensaje listo. Completa y envía.",
     phoneLabel: "Teléfono",
     openLabel: "Abrir perfil",
     copyLabel: "Copiar", copiedLabel: "Copiado",
-    mailSubject: "Contratar a MAZIK",
-    close: "Cerrar"
+    close: "Cerrar",
+    tpl: {
+      booking: { label: "Contratar", sub: "Manda fecha, ciudad y sala. El resto lo resolvemos en el chat.", msg: "¡Hola MAZIK! Quiero cerrar una fecha.\nEvento:\nFecha:\nCiudad / sala:", subject: "Contratar a MAZIK" },
+      aulas: { label: "Clases", sub: "Dime tu nivel y qué quieres aprender. El plan lo armamos en el chat.", msg: "¡Hola MAZIK! Quiero saber de las clases y la mentoría.\nNivel: (nunca toqué / ya toco)\nQuiero aprender:\nCiudad:", subject: "Clases con MAZIK" },
+      parceria: { label: "Alianza", sub: "Marca, colectivo o proyecto: cuenta la idea en dos líneas.", msg: "¡Hola MAZIK! Quiero proponer una alianza.\nMarca / proyecto:\nIdea:\nCuándo:", subject: "Alianza con MAZIK" },
+      imprensa: { label: "Prensa", sub: "Medio, tema y plazo. El material en alta está en el kit.", msg: "¡Hola MAZIK! Soy de prensa.\nMedio:\nTema:\nPlazo:", subject: "Prensa · MAZIK" }
+    }
   },
   en: {
     navPhotos: "Photos",
@@ -564,22 +573,99 @@ const COPY = {
     kitItem1: "Logos", kitItem2: "Illustrations", kitItem3: "Hi-res photos", kitItem4: "Release and bio",
     kitNote: "Google Drive · updated periodically",
     contatoTitle: "Book a date",
-    contatoSub: "Send the date, city and venue. We'll sort the rest in the chat.",
     waEyebrow: "Message ready",
-    waMessage: "Hi MAZIK! I'd like to book a date.\nEvent:\nDate:\nCity / venue:",
     waCta: "Send on WhatsApp",
     waHint: "Opens in your WhatsApp with the message ready. Fill in and send.",
     phoneLabel: "Phone",
     openLabel: "Open profile",
     copyLabel: "Copy", copiedLabel: "Copied",
-    mailSubject: "Booking MAZIK",
-    close: "Close"
+    close: "Close",
+    tpl: {
+      booking: { label: "Booking", sub: "Send the date, city and venue. We'll sort the rest in the chat.", msg: "Hi MAZIK! I'd like to book a date.\nEvent:\nDate:\nCity / venue:", subject: "Booking MAZIK" },
+      aulas: { label: "Classes", sub: "Tell me your level and what you want to learn. We'll build the plan in the chat.", msg: "Hi MAZIK! I'd like to know about classes and mentoring.\nLevel: (never played / already play)\nI want to learn:\nCity:", subject: "Classes with MAZIK" },
+      parceria: { label: "Partnership", sub: "Brand, collective or project: pitch the idea in two lines.", msg: "Hi MAZIK! I'd like to propose a partnership.\nBrand / project:\nIdea:\nWhen:", subject: "Partnership with MAZIK" },
+      imprensa: { label: "Press", sub: "Outlet, story and deadline. Hi-res material is in the kit.", msg: "Hi MAZIK! I'm with the press.\nOutlet:\nStory:\nDeadline:", subject: "Press · MAZIK" }
+    }
   }
 };
 
 const reduceMotion = document.documentElement.classList.contains("rm");
 let dict = COPY.pt;
-let bubbleTyped = false;
+let tplKey = "booking";
+let bubbleShown = false;
+let typeRun = 0;
+
+function currentTpl() { return (dict.tpl && dict.tpl[tplKey]) || COPY.pt.tpl[tplKey]; }
+
+/* ---- poster titles: fit the text to the container width ---- */
+const posters = document.querySelectorAll(".poster");
+function fitPosters() {
+  const cap = Math.min(window.innerWidth * 0.14, 220);
+  posters.forEach((el) => {
+    const box = el.closest(".wrap, .kit-txt") || el.parentElement;
+    const cs = getComputedStyle(box);
+    const cw = box.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    el.style.whiteSpace = "nowrap";
+    el.style.setProperty("--fs", "100px");
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const tw = range.getBoundingClientRect().width || 1;
+    let fs = 100 * cw / tw;
+    if (fs > cap) fs = cap;
+    if (fs < 44) { fs = 44; el.style.whiteSpace = "normal"; }
+    el.style.setProperty("--fs", fs.toFixed(1) + "px");
+  });
+}
+let fitTimer;
+window.addEventListener("resize", () => { clearTimeout(fitTimer); fitTimer = setTimeout(fitPosters, 120); });
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitPosters);
+
+/* ---- typewriter bubble ---- */
+function typeInto(text, speed) {
+  const bubble = document.getElementById("wa-bubble");
+  const run = ++typeRun;
+  if (reduceMotion) { bubble.classList.remove("typing"); bubble.textContent = text; return; }
+  bubble.textContent = "";
+  bubble.classList.add("typing");
+  let i = 0;
+  const step = () => {
+    if (run !== typeRun) return;
+    i += 1;
+    bubble.textContent = text.slice(0, i);
+    if (i < text.length) setTimeout(step, text[i - 1] === "\n" ? speed * 10 : speed);
+    else bubble.classList.remove("typing");
+  };
+  setTimeout(step, speed * 8);
+}
+
+function renderTemplate(mode) {
+  const t = currentTpl();
+  document.querySelectorAll(".chip").forEach((c) => {
+    const tt = (dict.tpl && dict.tpl[c.dataset.tpl]) || COPY.pt.tpl[c.dataset.tpl];
+    c.textContent = tt.label;
+    c.setAttribute("aria-pressed", String(c.dataset.tpl === tplKey));
+  });
+  document.getElementById("contato-sub").textContent = t.sub;
+  document.getElementById("wa-cta").href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(t.msg);
+  document.getElementById("mail-link").href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(t.subject);
+  const bubble = document.getElementById("wa-bubble");
+  if (!bubbleShown) return;
+  if (mode === "type") typeInto(t.msg, 22);
+  else if (mode === "retype") typeInto(t.msg, 9);
+  else { typeRun++; bubble.classList.remove("typing"); bubble.textContent = t.msg; }
+}
+function showBubble() {
+  if (bubbleShown) return;
+  bubbleShown = true;
+  renderTemplate("type");
+}
+document.querySelectorAll(".chip").forEach((c) => {
+  c.addEventListener("click", () => {
+    if (c.dataset.tpl === tplKey) return;
+    tplKey = c.dataset.tpl;
+    renderTemplate("retype");
+  });
+});
 
 function applyLang(lang) {
   dict = COPY[lang] || COPY.pt;
@@ -594,10 +680,8 @@ function applyLang(lang) {
     btn.setAttribute("aria-pressed", String(on));
   });
   document.documentElement.setAttribute("lang", lang === "pt" ? "pt-BR" : lang);
-  document.getElementById("wa-cta").href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(dict.waMessage);
-  document.getElementById("mail-link").href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(dict.mailSubject);
-  const bubble = document.getElementById("wa-bubble");
-  if (bubbleTyped) { bubble.classList.remove("typing"); bubble.textContent = dict.waMessage; }
+  renderTemplate("instant");
+  fitPosters();
   try { localStorage.setItem("mzk-lang", lang); } catch (e) {}
 }
 
@@ -614,29 +698,13 @@ document.querySelectorAll(".lang-btn").forEach((btn) => {
 });
 applyLang(initialLang());
 
-/* ---- typewriter bubble ---- */
-function typeBubble() {
-  const bubble = document.getElementById("wa-bubble");
-  if (bubbleTyped) return;
-  bubbleTyped = true;
-  if (reduceMotion) { bubble.textContent = dict.waMessage; return; }
-  const text = dict.waMessage;
-  let i = 0;
-  bubble.textContent = "";
-  bubble.classList.add("typing");
-  const step = () => {
-    if (bubble.textContent.length !== i) return; // language changed mid-typing: stop
-    i += 1;
-    bubble.textContent = text.slice(0, i);
-    if (i < text.length) setTimeout(step, text[i - 1] === "\n" ? 260 : 22);
-    else bubble.classList.remove("typing");
-  };
-  setTimeout(step, 250);
-}
-
 /* ---- scroll reveals ---- */
 const revealEls = document.querySelectorAll("[data-reveal]");
-function revealNow(el) { el.classList.add("in"); if (el.classList.contains("wa")) typeBubble(); }
+function revealNow(el) {
+  el.classList.add("in");
+  if (el.dataset.reveal === "wipe") setTimeout(() => el.classList.add("done"), 700); // drop the clip so accents above the line box show
+  if (el.classList.contains("wa")) showBubble();
+}
 if ("IntersectionObserver" in window) {
   // wiped titles are clipped to zero area, so their parent is observed on their behalf
   const targets = new Map();
@@ -653,7 +721,6 @@ if ("IntersectionObserver" in window) {
     });
   }, { rootMargin: "0px 0px -6% 0px", threshold: 0.01 });
   targets.forEach((_, node) => io.observe(node));
-  // safety net: anything already on screen after load is shown even if the observer missed it
   window.addEventListener("load", () => setTimeout(() => {
     revealEls.forEach((el) => {
       const r = el.getBoundingClientRect();
@@ -661,8 +728,7 @@ if ("IntersectionObserver" in window) {
     });
   }, 800));
 } else {
-  revealEls.forEach((el) => el.classList.add("in"));
-  typeBubble();
+  revealEls.forEach(revealNow);
 }
 
 /* ---- marquees driven by scroll velocity ---- */
