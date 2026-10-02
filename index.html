@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MAZIK · DJ de reggaeton em Curitiba</title>
-<meta name="description" content="DJ de reggaeton em Curitiba. Toca em praticamente todas as edições da Caliente (Macro Bar) e da Requebra (James Bar). Contratação pelo WhatsApp, set e kit de mídia.">
+<title>MAZIK | DJ de reggaeton e open format em Curitiba</title>
+<meta name="description" content="DJ de reggaeton e open format em Curitiba, das festas Caliente (Macro Bar) e Requebra (James Bar). Turntablism, aulas de DJ e contratação pelo WhatsApp.">
 <meta name="theme-color" content="#12150F">
 <link rel="canonical" href="https://mazik.com.br/">
 <meta property="og:site_name" content="MAZIK">
-<meta property="og:title" content="MAZIK · DJ de reggaeton em Curitiba">
+<meta property="og:title" content="MAZIK | DJ de reggaeton em Curitiba">
 <meta property="og:description" content="Reggaeton como cultura, identidade e raiz. Contratação pelo WhatsApp, set no Mixcloud e kit de mídia.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mazik.com.br/">
@@ -18,7 +18,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="MAZIK, DJ de reggaeton em Curitiba">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MAZIK · DJ de reggaeton em Curitiba">
+<meta name="twitter:title" content="MAZIK | DJ de reggaeton em Curitiba">
 <meta name="twitter:description" content="Reggaeton como cultura, identidade e raiz. Contratação pelo WhatsApp, set no Mixcloud e kit de mídia.">
 <meta name="twitter:image" content="https://mazik.com.br/assets/og-image.png">
 <script type="application/ld+json">
@@ -38,7 +38,7 @@
       "@id": "https://mazik.com.br/#mazik",
       "name": "MAZIK",
       "jobTitle": "DJ e produtor de reggaeton",
-      "description": "DJ de reggaeton em Curitiba. Turntablism, edits autorais e pesquisa musical na Colômbia, em Porto Rico e no Brasil. Toca em praticamente todas as edições da Caliente (Macro Bar) e da Requebra (James Bar).",
+      "description": "DJ de reggaeton e open format em Curitiba. Turntablism, edits autorais e pesquisa musical na Colômbia, em Porto Rico e no Brasil. DJ das festas Caliente (Macro Bar) e Requebra (James Bar).",
       "url": "https://mazik.com.br/",
       "image": "https://mazik.com.br/assets/foto-retrato.jpg",
       "email": "contato@mazik.com.br",
@@ -52,6 +52,32 @@
         "https://www.mixcloud.com/mazikthedj/",
         "https://open.spotify.com/user/12147303441"
       ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://mazik.com.br/#contratacao",
+      "name": "Contratação de DJ de reggaeton e open format",
+      "serviceType": "DJ",
+      "provider": { "@id": "https://mazik.com.br/#mazik" },
+      "areaServed": [
+        { "@type": "City", "name": "Curitiba" },
+        { "@type": "City", "name": "São Paulo" },
+        { "@type": "City", "name": "Porto Belo" },
+        { "@type": "City", "name": "Foz do Iguaçu" },
+        { "@type": "City", "name": "Ponta Grossa" },
+        { "@type": "City", "name": "Pato Branco" },
+        { "@type": "Country", "name": "Brasil" }
+      ],
+      "url": "https://mazik.com.br/#contato"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://mazik.com.br/#aulas",
+      "name": "Aulas de DJ: técnica, turntablism e leitura de pista",
+      "serviceType": "Aula de DJ",
+      "provider": { "@id": "https://mazik.com.br/#mazik" },
+      "areaServed": { "@type": "City", "name": "Curitiba" },
+      "url": "https://mazik.com.br/academia"
     }
   ]
 }
@@ -77,7 +103,11 @@
   ::selection { background: var(--rust); color: var(--cream); }
   :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
   section[id] { scroll-margin-top: 64px; }
-  img { max-width: 100%; }
+  img { max-width: 100%; height: auto; }
+  picture { display: contents; }
+  .skip { position: absolute; left: 12px; top: -60px; z-index: 1000; padding: 10px 16px; background: var(--gold); color: var(--ink); font-weight: 700; }
+  .skip:focus { top: 12px; }
+  .teach a { display: inline-block; margin-top: 8px; font-family: var(--narrow); font-weight: 700; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
 
   /* ---------- poster type (size is fitted to the container by script) ---------- */
   .poster { margin: 0; padding: .1em 0 .06em; font-family: var(--black); font-weight: 400; text-transform: uppercase; line-height: .86; letter-spacing: .01em; white-space: nowrap; font-size: var(--fs, clamp(44px, 12vw, 200px)); }
@@ -101,9 +131,10 @@
   .hero { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; align-items: end; padding: 78px 0 0 48px; overflow: hidden; }
   .hero-txt { position: relative; z-index: 3; padding: 32px 0 56px; display: flex; flex-direction: column; align-items: flex-start; }
   .hero-logo { width: min(100%, 540px); height: auto; display: block; margin-left: -1%; }
-  .hero h1 { margin: 30px 0 0; font-family: var(--black); font-weight: 400; font-size: clamp(40px, 6.2vw, 96px); line-height: .9; letter-spacing: .01em; text-transform: uppercase; color: var(--cream); transform: rotate(-2deg); transform-origin: left bottom; }
-  .hero h1 .w { display: inline-block; }
-  .hero h1 .w2 { color: var(--rust); }
+  .hero-h1 { margin: 26px 0 0; font-family: var(--narrow); font-weight: 700; font-size: 13px; line-height: 1.3; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+  .hero .hero-slogan { margin: 22px 0 0; font-family: var(--black); font-weight: 400; font-size: clamp(40px, 6.2vw, 96px); line-height: .9; letter-spacing: .01em; text-transform: uppercase; color: var(--cream); transform: rotate(-2deg); transform-origin: left bottom; }
+  .hero .hero-slogan .w { display: inline-block; }
+  .hero .hero-slogan .w2 { color: var(--rust); }
   .hero-sub { margin: 22px 0 0; font-size: 17px; line-height: 1.5; color: rgba(220,213,199,.66); max-width: 46ch; }
   .hero-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
   .btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 28px; font-family: var(--narrow); font-weight: 700; font-size: 14px; letter-spacing: .2em; text-transform: uppercase; transition: transform .35s var(--spring), background .15s ease, border-color .15s ease, color .15s ease; }
@@ -121,8 +152,8 @@
   @keyframes stamp-in { 0% { opacity: 0; transform: scale(1.7) rotate(-6deg); } 60% { opacity: 1; transform: scale(.96) rotate(1deg); } 100% { opacity: 1; transform: scale(1) rotate(0); } }
   @keyframes rise-in { from { opacity: 0; transform: translateY(60px) rotate(3deg); } to { opacity: 1; transform: none; } }
   @keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-  .js:not(.rm) .hero h1 .w { animation: stamp-in .6s var(--spring) both; }
-  .js:not(.rm) .hero h1 .w2 { animation-delay: .14s; }
+  .js:not(.rm) .hero .hero-slogan .w { animation: stamp-in .6s var(--spring) both; }
+  .js:not(.rm) .hero .hero-slogan .w2 { animation-delay: .14s; }
   .js:not(.rm) .hero-art { animation: rise-in .8s var(--spring) .1s both; }
   .js:not(.rm) .hero-logo { animation: fade-up .5s var(--cut) both; }
   .js:not(.rm) .hero-sub, .js:not(.rm) .hero-btns { animation: fade-up .5s var(--cut) .35s both; }
@@ -278,7 +309,7 @@
     header nav { gap: 12px; font-size: 11px; }
     .hero { grid-template-columns: 1fr; padding: 76px 20px 0; }
     .hero-txt { text-align: center; align-items: center; }
-    .hero h1 { transform: rotate(-1.5deg); transform-origin: center; }
+    .hero .hero-slogan { transform: rotate(-1.5deg); transform-origin: center; }
     .hero-btns { justify-content: center; }
     .hero-art { width: 70%; margin: 0 auto; }
     .marquee span { font-size: 28px; }
@@ -321,13 +352,15 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#conteudo" data-i18n="skip">Pular para o conteúdo</a>
 
 <header>
-  <a href="#topo" style="display: flex; align-items: center;"><img src="assets/logo-header.png" alt="MAZIK" style="height: 30px; display: block;"></a>
+  <a href="#topo" style="display: flex; align-items: center;"><img src="assets/logo-header.png" alt="MAZIK" width="270" height="88" style="height: 30px; width: auto; display: block;"></a>
   <nav class="caps">
     <a href="#bio" class="nav-link mzk-hide">Bio</a>
     <a href="#sets" class="nav-link mzk-hide">Set</a>
-    <a href="#fotos" class="nav-link mzk-hide" data-i18n="navPhotos">Fotos</a>
+    <a href="/academia" class="nav-link mzk-hide" data-i18n="navAcademy">Academia</a>
+    <a href="/blog" class="nav-link mzk-hide">Blog</a>
     <a href="#kit" class="nav-link">Kit</a>
     <a href="#contato" class="nav-cta" data-i18n="ctaBook">Contratar</a>
     <div class="lang" role="group" aria-label="Idioma / Language">
@@ -338,12 +371,14 @@
   </nav>
 </header>
 
+<main id="conteudo">
 <div id="topo"></div>
 
 <section class="hero">
   <div class="hero-txt">
-    <img class="hero-logo" src="assets/logo-hero.png" alt="MAZIK" width="697" height="377">
-    <h1 lang="es"><span class="w">Bienvenidos</span> <span class="w w2">a la pista</span></h1>
+    <picture><source srcset="assets/logo-hero.webp" type="image/webp"><img class="hero-logo" src="assets/logo-hero.png" alt="MAZIK" width="697" height="377"></picture>
+    <h1 class="hero-h1" data-i18n="heroH1">MAZIK, DJ de reggaeton em Curitiba</h1>
+    <p class="hero-slogan" lang="es"><span class="w">Bienvenidos</span> <span class="w w2">a la pista</span></p>
     <p class="hero-sub" data-i18n="heroSub">Reggaeton como cultura, identidade e raiz.</p>
     <div class="hero-btns">
       <a href="#contato" class="btn btn-primary" data-i18n="ctaBook">Contratar</a>
@@ -352,8 +387,8 @@
   </div>
   <div class="hero-art-col">
     <div class="hero-art">
-      <img src="assets/il-hero-outline.png" alt="" class="hero-shadow outline-deco mzk-hide">
-      <img src="assets/il-personagem.png" alt="Personagem MAZIK" data-parallax="10" class="hero-char outline-deco">
+      <picture><source srcset="assets/il-hero-outline.webp" type="image/webp"><img src="assets/il-hero-outline.png" width="1029" height="1200" alt="" class="hero-shadow outline-deco mzk-hide"></picture>
+      <picture><source srcset="assets/il-personagem.webp" type="image/webp"><img fetchpriority="high" decoding="async" src="assets/il-personagem.png" width="1130" height="1200" alt="Personagem MAZIK" data-parallax="10" class="hero-char outline-deco"></picture>
     </div>
   </div>
 </section>
@@ -381,14 +416,14 @@
         </div>
       </div>
       <div class="side" data-reveal style="--d: 120ms">
-        <div class="portrait"><img src="assets/foto-retrato.jpg" alt="Retrato de MAZIK"></div>
+        <div class="portrait"><picture><source srcset="assets/foto-retrato.webp" type="image/webp"><img src="assets/foto-retrato.jpg" width="1008" height="1400" alt="Retrato de MAZIK de boné, em movimento, sob luz laranja"></picture></div>
         <div class="stats">
           <div class="stat"><b>59</b><span data-i18n="stat1">casas diferentes</span></div>
           <div class="stat"><b>14</b><span data-i18n="stat2">cidades</span></div>
         </div>
         <div class="teach">
-          <img src="assets/il-mentoria.png" alt="" loading="lazy" decoding="async" class="outline-deco">
-          <div><b data-i18n="teachTitle">Aulas e mentoria</b><span data-i18n="teachDesc">Forma novos DJs nas principais academias de Curitiba: técnica, repertório e leitura de pista.</span></div>
+          <picture><source srcset="assets/il-mentoria.webp" type="image/webp"><img src="assets/il-mentoria.png" width="192" height="99" alt="" loading="lazy" decoding="async" class="outline-deco"></picture>
+          <div><b data-i18n="teachTitle">Aulas e mentoria</b><span data-i18n="teachDesc">Forma novos DJs nas principais academias de Curitiba: técnica, repertório e leitura de pista.</span><a href="/academia" data-i18n="teachLink">Conhecer a Academia</a></div>
         </div>
       </div>
     </div>
@@ -396,7 +431,7 @@
 </section>
 
 <section id="lugares">
-  <img src="assets/il-decor-lugares.png" alt="" loading="lazy" decoding="async" class="sticker outline-deco mzk-hide" style="left: 2%; bottom: -54px; width: 120px; --r: -7deg;">
+  <picture><source srcset="assets/il-decor-lugares.webp" type="image/webp"><img src="assets/il-decor-lugares.png" width="330" height="332" alt="" loading="lazy" decoding="async" class="sticker outline-deco mzk-hide" style="left: 2%; bottom: -54px; width: 120px; --r: -7deg;"></picture>
   <span class="stamp" data-reveal data-i18n="citiesLabel">Onde já tocou</span>
   <div class="marquee rev" aria-hidden="true">
     <div class="marquee-track" data-marquee="40">
@@ -409,7 +444,7 @@
 
 <section id="sets">
   <div class="texture"></div>
-  <img src="assets/il-decor-sets.png" alt="" loading="lazy" decoding="async" class="sticker outline-deco mzk-hide" style="right: 4%; bottom: -60px; width: 170px; --r: -10deg;">
+  <picture><source srcset="assets/il-decor-sets.webp" type="image/webp"><img src="assets/il-decor-sets.png" width="504" height="629" alt="" loading="lazy" decoding="async" class="sticker outline-deco mzk-hide" style="right: 4%; bottom: -60px; width: 170px; --r: -10deg;"></picture>
   <div class="wrap" style="position: relative;">
     <span class="stamp" data-reveal style="--r: -3deg;">Set · Mixcloud</span>
     <h2 class="poster" data-reveal="wipe" data-i18n="setsTitle" style="margin-top: 18px;">Ouve aí</h2>
@@ -425,23 +460,23 @@
 </section>
 
 <section id="fotos">
-  <img src="assets/il-decor-fotos.png" alt="" loading="lazy" decoding="async" class="sticker outline-deco mzk-hide" style="left: 3%; bottom: -60px; width: 140px; --r: -12deg;">
+  <picture><source srcset="assets/il-decor-fotos.webp" type="image/webp"><img src="assets/il-decor-fotos.png" width="390" height="333" alt="" loading="lazy" decoding="async" class="sticker outline-deco mzk-hide" style="left: 3%; bottom: -60px; width: 140px; --r: -12deg;"></picture>
   <div class="wrap">
     <h2 class="poster" data-reveal="wipe" data-i18n="photosTitle">Na cabine</h2>
     <div class="gal">
-      <div class="span2 row2" data-reveal style="--d: 0ms"><button type="button" class="gal-btn" data-cap="Basement"><img src="assets/foto-basement.jpg" alt="MAZIK nos toca-discos no Basement" loading="lazy" decoding="async"><span class="gal-stamp">Basement</span></button></div>
-      <div data-reveal style="--d: 60ms"><button type="button" class="gal-btn" data-cap="Macro"><img src="assets/foto-macro-1.jpg" alt="MAZIK de boné e fone na cabine do Macro" loading="lazy" decoding="async"><span class="gal-stamp">Macro</span></button></div>
-      <div data-reveal style="--d: 120ms"><button type="button" class="gal-btn" data-cap="Retrato"><img src="assets/foto-hottel.jpg" alt="Retrato de MAZIK" loading="lazy" decoding="async"><span class="gal-stamp">Retrato</span></button></div>
-      <div data-reveal style="--d: 180ms"><button type="button" class="gal-btn" data-cap="Na cabine"><img src="assets/foto-toca-discos.jpg" alt="MAZIK mixando na cabine" loading="lazy" decoding="async"><span class="gal-stamp">Na cabine</span></button></div>
-      <div data-reveal style="--d: 240ms"><button type="button" class="gal-btn" data-cap="Macro"><img src="assets/foto-macro-2.jpg" alt="MAZIK na cabine do Macro sob luz laranja" loading="lazy" decoding="async"><span class="gal-stamp">Macro</span></button></div>
-      <div class="span2" data-reveal style="--d: 300ms"><button type="button" class="gal-btn" data-cap="Basement"><img src="assets/foto-basement-2.jpg" alt="MAZIK sorrindo na cabine do Basement" loading="lazy" decoding="async"><span class="gal-stamp">Basement</span></button></div>
-      <div class="span2" data-reveal style="--d: 360ms"><button type="button" class="gal-btn" data-cap="Na cabine"><img src="assets/foto-mixer.jpg" alt="Mãos de MAZIK nos toca-discos e no mixer" loading="lazy" decoding="async" style="object-position: 50% 80%;"><span class="gal-stamp">Na cabine</span></button></div>
+      <div class="span2 row2" data-reveal style="--d: 0ms"><button type="button" class="gal-btn" data-cap="Basement"><picture><source srcset="assets/foto-basement.webp" type="image/webp"><img src="assets/foto-basement.jpg" width="1024" height="683" alt="MAZIK nos toca-discos no Basement" loading="lazy" decoding="async"></picture><span class="gal-stamp">Basement</span></button></div>
+      <div data-reveal style="--d: 60ms"><button type="button" class="gal-btn" data-cap="Macro"><picture><source srcset="assets/foto-macro-1.webp" type="image/webp"><img src="assets/foto-macro-1.jpg" width="1023" height="1280" alt="MAZIK de boné e fone na cabine do Macro" loading="lazy" decoding="async"></picture><span class="gal-stamp">Macro</span></button></div>
+      <div data-reveal style="--d: 120ms"><button type="button" class="gal-btn" data-cap="Retrato"><picture><source srcset="assets/foto-hottel.webp" type="image/webp"><img src="assets/foto-hottel.jpg" width="1000" height="666" alt="MAZIK de fone e correntes douradas, de olho no equipamento" loading="lazy" decoding="async"></picture><span class="gal-stamp">Retrato</span></button></div>
+      <div data-reveal style="--d: 180ms"><button type="button" class="gal-btn" data-cap="Na cabine"><picture><source srcset="assets/foto-toca-discos.webp" type="image/webp"><img src="assets/foto-toca-discos.jpg" width="1000" height="1333" alt="MAZIK mixando na cabine" loading="lazy" decoding="async"></picture><span class="gal-stamp">Na cabine</span></button></div>
+      <div data-reveal style="--d: 240ms"><button type="button" class="gal-btn" data-cap="Macro"><picture><source srcset="assets/foto-macro-2.webp" type="image/webp"><img src="assets/foto-macro-2.jpg" width="1023" height="1280" alt="MAZIK na cabine do Macro sob luz laranja" loading="lazy" decoding="async"></picture><span class="gal-stamp">Macro</span></button></div>
+      <div class="span2" data-reveal style="--d: 300ms"><button type="button" class="gal-btn" data-cap="Basement"><picture><source srcset="assets/foto-basement-2.webp" type="image/webp"><img src="assets/foto-basement-2.jpg" width="1400" height="933" alt="MAZIK sorrindo na cabine do Basement" loading="lazy" decoding="async"></picture><span class="gal-stamp">Basement</span></button></div>
+      <div class="span2" data-reveal style="--d: 360ms"><button type="button" class="gal-btn" data-cap="Na cabine"><picture><source srcset="assets/foto-mixer.webp" type="image/webp"><img src="assets/foto-mixer.jpg" width="1050" height="1400" alt="Mãos de MAZIK nos toca-discos e no mixer" loading="lazy" decoding="async" style="object-position: 50% 80%;"></picture><span class="gal-stamp">Na cabine</span></button></div>
     </div>
   </div>
 </section>
 
 <section id="kit">
-  <img src="assets/il-decor-kit.png" alt="" loading="lazy" decoding="async" class="sticker sway outline-deco mzk-hide" style="right: 3%; bottom: -40px; width: 120px; --r: 7deg;">
+  <picture><source srcset="assets/il-decor-kit.webp" type="image/webp"><img src="assets/il-decor-kit.png" width="360" height="588" alt="" loading="lazy" decoding="async" class="sticker sway outline-deco mzk-hide" style="right: 3%; bottom: -40px; width: 120px; --r: 7deg;"></picture>
   <div class="kit-grid">
     <div class="kit-txt">
       <h2 class="poster" data-fit="words" data-reveal="wipe" data-i18n="kitTitle">Baixe o material</h2>
@@ -451,7 +486,7 @@
       <a href="https://drive.google.com/drive/folders/1mFGGzUpKC0FMKEOJ7zzKhF9nU9mx2YHE?usp=drive_link" target="_blank" rel="noopener" class="btn-kit" data-reveal style="--d: 140ms"><span data-i18n="kitCta">Abrir no Drive</span> <span aria-hidden="true" style="font-family: var(--mono); font-size: 14px;">↓</span></a>
     </div>
     <div class="kit-art" data-reveal style="--d: 100ms">
-      <img src="assets/kit-art.jpg" alt="Arte MAZIK: onça, cabine, onça" loading="lazy" decoding="async">
+      <picture><source srcset="assets/kit-art.webp" type="image/webp"><img src="assets/kit-art.jpg" width="1600" height="900" alt="Arte MAZIK: onça, cabine, onça" loading="lazy" decoding="async"></picture>
     </div>
   </div>
 </section>
@@ -459,7 +494,7 @@
 <div class="tape"></div>
 
 <section id="contato">
-  <img src="assets/il-decor-contato.png" alt="" loading="lazy" decoding="async" class="sticker onca mzk-hide">
+  <picture><source srcset="assets/il-decor-contato.webp" type="image/webp"><img src="assets/il-decor-contato.png" width="690" height="351" alt="" loading="lazy" decoding="async" class="sticker onca mzk-hide"></picture>
   <div class="wrap">
     <h2 class="poster" data-reveal="wipe" data-i18n="contatoTitle">Bora fechar</h2>
 
@@ -517,6 +552,8 @@
   </div>
 </section>
 
+</main>
+
 <a id="wa-bar" class="wa-bar" href="https://wa.me/5541998152922?text=Oi%20MAZIK!%20Quero%20fechar%20uma%20data.%0AEvento%3A%0AData%3A%0ACidade%20%2F%20casa%3A" target="_blank" rel="noopener">
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
   <span data-i18n="waBar">Chamar no WhatsApp</span>
@@ -536,15 +573,17 @@
   <button type="button" class="lb-close" id="lb-close" data-i18n="close">Fechar</button>
 </div>
 
+<script>(function(){function s(t,x){try{var d=JSON.stringify({t:t,x:x||"",p:location.pathname,r:document.referrer||"",q:location.search||""});if(navigator.sendBeacon)navigator.sendBeacon("/api/evento",new Blob([d],{type:"application/json"}));else fetch("/api/evento",{method:"POST",body:d,keepalive:true,headers:{"content-type":"application/json"}});}catch(e){}}var k="mzk-v";try{if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");s("visita");}}catch(e){s("visita");}document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a,button");if(!a)return;var h=a.getAttribute("href")||"";if(/wa\.me/.test(h))s("whatsapp",a.id||"");else if(/^mailto:/.test(h))s("email");else if(/^tel:/.test(h))s("telefone");else if(/drive\.google/.test(h))s("presskit");else if(/mixcloud|spotify|soundcloud/.test(h))s("ouvir",h.replace(/^https?:\/\//,"").split("/")[0]);else if(/instagram|tiktok/.test(h))s("social",h.replace(/^https?:\/\//,"").split("/")[0]);else if(a.classList&&a.classList.contains("copy-btn"))s("copiou_telefone");else if(a.classList&&a.classList.contains("chip"))s("assunto",a.getAttribute("data-tpl")||"");},true);})();</script>
 <script>
 const PHONE = "5541998152922";
 const EMAIL = "contato@mazik.com.br";
 
 const COPY = {
   pt: {
-    navPhotos: "Fotos",
+    navPhotos: "Fotos", navAcademy: "Academia", skip: "Pular para o conteúdo",
+    heroH1: "MAZIK, DJ de reggaeton em Curitiba", teachLink: "Conhecer a Academia",
     ctaBook: "Contratar", ctaListen: "Ouvir set",
-    title: "MAZIK · DJ de reggaeton em Curitiba",
+    title: "MAZIK | DJ de reggaeton e open format em Curitiba",
     heroSub: "Reggaeton como cultura, identidade e raiz.",
     bioTitle: "Ritmo é linguagem",
     bio1: "MAZIK é um DJ nascido em um verdadeiro caldeirão cultural: brasileiro, criado onde as sonoridades e os ritmos de diferentes partes do mundo se encontram para pulsar no continente latino-americano. Da percussão, sua primeira escola, levou a lição que guia tudo o que faz: ritmo é linguagem e toda batida carrega história e sentimento.",
@@ -577,9 +616,10 @@ const COPY = {
     }
   },
   es: {
-    navPhotos: "Fotos",
+    navPhotos: "Fotos", navAcademy: "Academia", skip: "Saltar al contenido",
+    heroH1: "MAZIK, DJ de reggaeton en Curitiba", teachLink: "Conocer la Academia",
     ctaBook: "Contratar", ctaListen: "Escuchar set",
-    title: "MAZIK · DJ de reggaeton en Curitiba",
+    title: "MAZIK | DJ de reggaeton y open format en Curitiba",
     heroSub: "Reggaeton como cultura, identidad y raíz.",
     bioTitle: "El ritmo es lenguaje",
     bio1: "MAZIK es un DJ nacido en un verdadero caldero cultural: brasileño, criado donde los sonidos y ritmos de distintas partes del mundo se encuentran para latir en el continente latinoamericano. De la percusión, su primera escuela, sacó la lección que guía todo lo que hace: el ritmo es lenguaje y cada golpe carga historia y sentimiento.",
@@ -612,9 +652,10 @@ const COPY = {
     }
   },
   en: {
-    navPhotos: "Photos",
+    navPhotos: "Photos", navAcademy: "Academy", skip: "Skip to content",
+    heroH1: "MAZIK, reggaeton DJ in Curitiba", teachLink: "Visit the Academy",
     ctaBook: "Book now", ctaListen: "Listen",
-    title: "MAZIK · Reggaeton DJ in Curitiba",
+    title: "MAZIK | Reggaeton and open format DJ in Curitiba",
     heroSub: "Reggaeton as culture, identity and roots.",
     bioTitle: "Rhythm is language",
     bio1: "MAZIK is a DJ born in a genuine cultural melting pot: Brazilian, raised where sounds and rhythms from all over the world meet to pulse across Latin America. Percussion was his first school, and it left the lesson that guides everything he does: rhythm is language, and every beat carries history and feeling.",
