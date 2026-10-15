@@ -1,4 +1,4 @@
-# MAZIK · Presskit
+# MAZIK | Presskit
 
 Site estático de uma página: `index.html` com CSS e JS embutidos, imagens em `assets/`.
 
