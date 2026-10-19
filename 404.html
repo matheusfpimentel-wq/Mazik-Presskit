@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Essa faixa não está no set | MAZIK</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#12150F">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="preload" href="/assets/fonts/tusker-grotesk-5700-bold.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face { font-family: 'Tusker Grotesk'; src: url('/assets/fonts/tusker-grotesk-5700-bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+  :root { --ink: #12150F; --cream: #DCD5C7; --rust: #C0522B; --gold: #D89A2B; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; background: var(--ink); color: var(--cream); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  header { padding: 14px 22px; border-bottom: 1px solid rgba(220,213,199,.14); }
+  header img { height: 30px; width: auto; display: block; }
+  main { flex: 1; display: flex; align-items: center; padding: 48px 22px 64px; }
+  .in { max-width: 960px; margin: 0 auto; width: 100%; }
+  .kicker { font-weight: 700; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin: 0 0 16px; }
+  h1 { margin: 0; font-family: 'Tusker Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(48px, 11vw, 132px); line-height: .9; text-transform: uppercase; letter-spacing: .01em; transform: rotate(-2deg); transform-origin: left bottom; }
+  h1 span { color: var(--rust); }
+  p.lede { margin: 26px 0 0; max-width: 46ch; font-size: 18px; line-height: 1.55; color: rgba(220,213,199,.7); }
+  nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 36px; }
+  nav a { display: block; padding: 18px 18px 16px; border: 2px solid rgba(220,213,199,.22); color: var(--cream); text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; transition: border-color .16s, color .16s, transform .3s; }
+  nav a:hover, nav a:focus-visible { border-color: var(--gold); color: var(--gold); transform: rotate(-1.5deg); }
+  nav a.cta { background: var(--rust); border-color: var(--rust); color: var(--ink); }
+  nav a.cta:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  footer { padding: 22px; font-size: 13px; color: rgba(220,213,199,.5); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header><a href="/"><img src="/assets/logo-header.png" alt="MAZIK" width="270" height="88"></a></header>
+<main>
+  <div class="in">
+    <p class="kicker">Erro 404</p>
+    <h1>Essa faixa <span>não está no set</span></h1>
+    <p class="lede">O endereço que você abriu não existe ou mudou de lugar. Escolhe uma das portas abaixo.</p>
+    <nav aria-label="Páginas do site">
+      <a class="cta" href="/#contato">Contratar</a>
+      <a href="/academia">Aulas e Academia</a>
+      <a href="/#sets">Ouvir set</a>
+      <a href="/blog">Blog</a>
+      <a href="/">Início</a>
+    </nav>
+  </div>
+</main>
+<footer>MAZIK, Curitiba</footer>
+</body>
+</html>
