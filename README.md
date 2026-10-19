@@ -10,7 +10,7 @@ Site estático de uma página: `index.html` com CSS e JS embutidos, imagens em `
 ## O que mais está no ar e não mora aqui
 
 - **`_worker.js`** (blog, editor `/admin`, Academia, API de eventos): a fonte fica no banco D1 `mazik-blog`, tabela `_site_parts` (chaves `src`, `index`, `admin`, `beat`). Todo deploy precisa incluir o worker, senão `/blog`, `/academia` e o editor caem (foi o que aconteceu em 29/09/2026).
-- **`oi.html` e `assets/qr/`**: landing do QR code, publicada por upload manual em 29/09/2026. Ainda não estão neste repositório; o deploy reaproveita os arquivos já publicados.
+- **`oi.html` e `assets/qr/`**: landing do QR code. Estão neste repositório desde 15/10/2026; o deploy só busca no site no ar se algum desses arquivos faltar.
 
 ## Medição
 
