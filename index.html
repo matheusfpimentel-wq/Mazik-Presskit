@@ -82,12 +82,12 @@
 <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/tusker-grotesk-5700-bold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo&family=Archivo+Black&family=Archivo+Narrow:wght@700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("rm");</script>
 <style>
   @font-face { font-family: 'Tusker Grotesk'; src: url('assets/fonts/tusker-grotesk-5700-bold.woff2') format('woff2'); font-weight: 400 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Archivo'; src: url('assets/fonts/archivo-latin-400-normal.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  @font-face { font-family: 'Archivo Black'; src: url('assets/fonts/archivo-black-latin-400-normal.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+  @font-face { font-family: 'Archivo Narrow'; src: url('assets/fonts/archivo-narrow-latin-700-normal.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
   :root {
     --ink: #12150F; --ink2: #0C0E0A; --cream: #DCD5C7; --rust: #C0522B; --gold: #D89A2B; --sage: #8FA07E;
     --narrow: 'Archivo Narrow', sans-serif; --black: 'Tusker Grotesk', 'Archivo Black', Impact, sans-serif; --mono: ui-monospace, Menlo, monospace;
@@ -213,7 +213,7 @@
 
   /* ---------- sets ---------- */
   #sets { position: relative; padding: 96px 0 110px; background: var(--rust); color: var(--ink); }
-  #sets .texture { position: absolute; inset: 0; background-image: url('assets/textura-set.png'); background-size: 190px; opacity: .14; mix-blend-mode: multiply; pointer-events: none; }
+  #sets .texture { position: absolute; inset: 0; background-image: url('assets/textura-set.webp'); background-size: 190px; opacity: .14; mix-blend-mode: multiply; pointer-events: none; }
   #sets .poster { color: var(--ink); }
   .sets-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .72fr); gap: 28px; align-items: center; margin-top: 40px; }
   .sets-grid iframe { width: 100%; height: 120px; border: 3px solid var(--ink); display: block; background: var(--ink); }
@@ -383,7 +383,7 @@
   </div>
   <div class="hero-art-col">
     <div class="hero-art">
-      <picture><source srcset="assets/il-hero-outline.webp" type="image/webp"><img src="assets/il-hero-outline.png" width="1029" height="1200" alt="" class="hero-shadow outline-deco mzk-hide"></picture>
+      <picture><source media="(max-width: 900px)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><source srcset="assets/il-hero-outline.webp" type="image/webp"><img src="assets/il-hero-outline.png" width="1029" height="1200" alt="" class="hero-shadow outline-deco mzk-hide"></picture>
       <picture><source srcset="assets/il-personagem.webp" type="image/webp"><img fetchpriority="high" decoding="async" src="assets/il-personagem.png" width="1130" height="1200" alt="Personagem MAZIK" data-parallax="10" class="hero-char outline-deco"></picture>
     </div>
   </div>
